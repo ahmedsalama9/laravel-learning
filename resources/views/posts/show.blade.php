@@ -7,15 +7,16 @@
 @section('content')
     
 
-        <!-- Content -->
         <article class="col-lg-8">
           <header class="mb-4">
-            <h1 class="display-6 fw-bold">How to write a clean, responsive blog post with Bootstrap</h1>
+            
+            @foreach ($post as $item)
+            <h1 class="display-6 fw-bold">{{$item->titles}}</h1>
             <div class="d-flex align-items-center mt-3">
               <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=60" alt="Author" class="author-avatar me-3">
               <div>
-                <div class="fw-semibold">Ahmed Salama</div>
-                <div class="meta"><small>Published Oct 29, 2025 · 8 min read · <span class="text-muted">Tech & Design</span></small></div>
+                <div class="fw-semibold">{{$item->created_by}}</div>
+                <div class="meta"><small>Published {{$item->created_at}} <span class="text-muted">Tech & Design</span></small></div>
               </div>
             </div>
       
@@ -23,24 +24,11 @@
 
           <figure class="mb-4">
             <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&auto=format&fit=crop&q=60" class="post-hero shadow-sm" alt="Post hero image">
-            <figcaption class="text-muted small mt-2">Photo by Unsplash</figcaption>
           </figure>
 
           <div class="post-content bg-white p-4 rounded shadow-sm">
-            <p>This sample post shows how you can structure a single post page using Bootstrap. Use the grid for layout, utility classes for spacing, and components for lists, badges, and forms. The markup below is semantic and easy to customize.</p>
 
-            <h3>Why Bootstrap?</h3>
-            <p>Bootstrap provides a robust set of CSS classes and components that make it faster to build responsive pages. The grid system, utilities, and components such as cards and navbars let you build consistent layouts with minimal custom CSS.</p>
-
-            <h4>Example code snippet</h4>
-            <pre class="bg-light p-3 rounded"><code>&lt;div class="container"&gt;...&lt;/div&gt;</code></pre>
-
-            <p>Continue the article with paragraphs, images, blockquotes and code. Keep headings at logical levels and include accessible alt text for images. At the end, include tags and author info.</p>
-
-            <blockquote class="blockquote p-3 border-start border-4 border-primary bg-light rounded">
-              <p class="mb-0">Design is not just what it looks like and feels like. Design is how it works.</p>
-              <footer class="blockquote-footer mt-2">— Steve Jobs</footer>
-            </blockquote>
+            <h6>{{$item->description}}</h6>
 
             <h5>Key takeaways</h5>
             <ul>
@@ -60,8 +48,8 @@
           <div class="mt-4 p-3 bg-white rounded shadow-sm d-flex gap-3 align-items-center">
             <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=60" alt="Author" class="author-avatar">
             <div>
-              <h6 class="mb-0">Ahmed Salama</h6>
-              <p class="mb-0 text-muted small">Chemical Engineer, Frontend tinkerer, and blogger. I write about engineering, code and practical design tips.</p>
+              <h6 class="mb-0">{{$item->created_by}}</h6>
+              <p class="mb-0 text-muted small"> Frontend tinkerer, and blogger. I write about engineering, code and practical design tips.</p>
               <div class="mt-2">
                 <a href="#" class="text-decoration-none me-2">Twitter</a>
                 <a href="#" class="text-decoration-none">LinkedIn</a>
@@ -113,6 +101,7 @@
               </div>
             </form>
           </section>
+          @endforeach
         </article>
 
         <!-- SIDEBAR -->
@@ -149,6 +138,7 @@
               </form>
             </div>
           </div>
+         
         </aside>
       </div>
       @endsection

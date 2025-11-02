@@ -12,18 +12,23 @@
     <h4 class="mb-0">Edit the post</h4>
   </div>
   <div class="card-body">
-    <form method="POST" action="{{route('posts.update',1)}}">
+    <form method="POST" action="{{route('posts.update', $post->id)}}">
       @csrf
       @method('PUT')
       
       <!-- Post Title -->
       <div class="mb-3">
         <label for="title" class="form-label">Post Title</label>
-        <input name="title" type="text" class="form-control" id="title" placeholder="Enter post title" >
+        <input name="title" type="text" class="form-control" id="title"  value="{{$post->titles}}" >
+      </div>
+
+      <div class="mb-3">
+        <label for="createdBy" class="form-label">created By</label>
+        <input name="createdBy" type="text" class="form-control" id="title"  value="{{$post->created_by}}">
       </div>
 
       <!-- Category -->
-      <div class="mb-3">
+      {{-- <div class="mb-3">
         <label for="category" class="form-label">Category</label>
         <select name="category" class="form-select" id="category" >
           <option value="" disabled selected>Select category</option>
@@ -34,10 +39,10 @@
         </select>
       </div>
 
-      <!-- Post Content -->
+      <!-- Post Content --> --}}
       <div class="mb-3">
         <label for="content" class="form-label">Content</label>
-        <textarea name="contnet" class="form-control" id="content" rows="6" placeholder="Write your post here..." ></textarea>
+        <textarea name="contnet" class="form-control" id="content" rows="6"  >{{$post->description}}</textarea>
       </div>
 
       <!-- Image Upload -->

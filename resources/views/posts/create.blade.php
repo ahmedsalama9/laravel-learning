@@ -14,10 +14,15 @@
       <!-- Post Title -->
       <div class="mb-3">
         <label for="title" class="form-label">Post Title</label>
-        <input name="title" type="text" class="form-control" id="title" placeholder="Enter post title" >
+        <input name="titles" type="text" class="form-control" id="title" placeholder="Enter post title" >
       </div>
 
-      <!-- Category -->
+      <div class="mb-3">
+        <label for="createdBy" class="form-label">created By</label>
+        <input name="createdBy" type="text" class="form-control" id="title" placeholder="Enter post title" >
+      </div>
+
+      {{-- <!-- Category -->
       <div class="mb-3">
         <label for="category" class="form-label">Category</label>
         <select name="category" class="form-select" id="category" >
@@ -27,7 +32,7 @@
           <option>Health</option>
           <option>Education</option>
         </select>
-      </div>
+      </div> --}}
 
       <!-- Post Content -->
       <div class="mb-3">
